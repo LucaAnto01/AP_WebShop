@@ -13,6 +13,7 @@ Pagina di registrazione:
 Piattaforma vista da un cliente: 
     - home con vari prodotti -> click sul prodotto, pagina di info con la possibilità di ordinarlo
     - pagina di gestione del profilo -> conterrà anche l'elenco degli ordini
+    - conferma ricezione pacco
 
 Piattaforma vista da un produttore: 
     - elenco dei propri prodotti con tutte le info del caso, con la possibilità di modificare, aggiungere, rimuovere un prodotto
