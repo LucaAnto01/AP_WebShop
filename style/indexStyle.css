@@ -1,0 +1,42 @@
+/*Tema relativo alla pagina index.html*/
+
+#titolo
+{
+    width: 100%;
+    margin-top: 3%;
+    padding-bottom: 5%;
+    color: rgb(119, 161, 170);
+    text-align: center;
+    font-size: large;
+}
+
+.sottoTitolo
+{
+    width: 100%;
+    padding-bottom: 1%;
+    text-align: center;
+}
+
+.sottoTitolo h3
+{
+    margin-left: 33%;
+    width: 35%;
+}
+
+.sottoTitolo h5
+{
+    margin-left: 35%;
+    width: 30%;
+}
+
+#button
+{
+    width: 100%;
+}
+
+.btDiv
+{
+    width: 50%;
+    /*margin-left: calc(48%);*/
+    padding-bottom: 1%;
+}
