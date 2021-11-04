@@ -1,0 +1,19 @@
+body
+{
+    background-color: rgba(177, 177, 177, 0.877);
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+#pagina
+{
+    width: 100%;
+}
+
+/*Bottone relativo a funzioni (es. accesso, registrazione)*/
+.functButton
+{
+    height: 35px;
+    border-radius: 10%;
+    border: 2px solid white;
+    background-color: rgb(119, 161, 170);
+}
