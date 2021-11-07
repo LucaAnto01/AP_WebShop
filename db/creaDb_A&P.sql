@@ -6,7 +6,7 @@ USE 'A&P';
 
 CREATE TABLE fornitori(
     id varchar(10) primary key NOT NULL AUTO_INCREMENT,
-    email varchar(80) NOT NULL,
+    email varchar(80) NOT NULL UNIQUE,
     pswd varchar(256) NOT NULL,
     ragioneSociale varchar(100) NOT NULL,
     pIva varchar(11) NOT NULL,
@@ -20,4 +20,11 @@ CREATE TABLE prodotti(
     nome varchar(100) NOT NULL,
     descrizione varchar(250),
     FOREIGN KEY (fkIdFornitore) REFERENCES AccountCategories(code)
+);
+
+CREATE TABLE utenti(
+    username varchar(50) primary key NOT NULL,
+    email varchar(80) NOT NULL UNIQUE,
+    pswd varchar(256) NOT NULL,
+    residenza varchar(100), NOT NULL
 );
