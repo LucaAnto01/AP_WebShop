@@ -1,0 +1,5 @@
+<?php 
+
+    /**Gestione delle funzioni */
+
+?>
