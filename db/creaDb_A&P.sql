@@ -1,8 +1,8 @@
-/*Creo il database assegnandoli il nome A&P*/
-CREATE DATABASE  'A&P';
+/**Creo il database assegnandoli il nome AeP_webshop*/
+CREATE DATABASE AeP_webshop;
 
-/*Seleziono il database precedentemente creato al fine di potervi operare*/
-USE 'A&P';
+/**Seleziono il database precedentemente creato al fine di potervi operare*/
+USE AeP_webshop;
 
 CREATE TABLE fornitori(
     pIva varchar(11) primary key NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE fornitori(
     pswd varchar(128) NOT NULL,
     ragioneSociale varchar(100) NOT NULL,
     sede varchar(100),
-    sitoWeb varchar(100),
+    sitoWeb varchar(100)
 );
 
 CREATE TABLE prodotti(
@@ -26,7 +26,7 @@ CREATE TABLE clienti(
     username varchar(50) primary key NOT NULL,
     email varchar(80) NOT NULL UNIQUE,
     pswd varchar(128) NOT NULL,
-    residenza varchar(100), NOT NULL
+    residenza varchar(100) NOT NULL
 );
 
 CREATE TABLE fattura(
