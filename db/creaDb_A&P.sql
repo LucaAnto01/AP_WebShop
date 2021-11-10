@@ -7,7 +7,7 @@ USE 'A&P';
 CREATE TABLE fornitori(
     pIva varchar(11) primary key NOT NULL,
     email varchar(80) NOT NULL UNIQUE,
-    pswd varchar(256) NOT NULL,
+    pswd varchar(128) NOT NULL,
     ragioneSociale varchar(100) NOT NULL,
     sede varchar(100),
     sitoWeb varchar(100),
@@ -22,10 +22,10 @@ CREATE TABLE prodotti(
     FOREIGN KEY (fkPIvaFornitore) REFERENCES fornitori(pIva)
 );
 
-CREATE TABLE utenti(
+CREATE TABLE clienti(
     username varchar(50) primary key NOT NULL,
     email varchar(80) NOT NULL UNIQUE,
-    pswd varchar(256) NOT NULL,
+    pswd varchar(128) NOT NULL,
     residenza varchar(100), NOT NULL
 );
 
@@ -35,7 +35,7 @@ CREATE TABLE fattura(
     fkIdProdotto integer(10) NOT NULL,
     fkPIvaFornitore varchar(11) NOT NULL,
     emissione date NOT NULL,
-    FOREIGN KEY (fkIntestatario) REFERENCES utenti(username),
+    FOREIGN KEY (fkIntestatario) REFERENCES clienti(username),
     FOREIGN KEY (fkIdProdotto) REFERENCES prodotti(id),
     FOREIGN KEY (fkPIvaFornitore) REFERENCES fornitori(pIva)
 );
