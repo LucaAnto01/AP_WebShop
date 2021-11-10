@@ -1,5 +1,5 @@
 /*Seleziono il database al fine di potervi operare*/
-USE 'A&P';
+USE AeP_webshop;
 
 CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin_admin';
 

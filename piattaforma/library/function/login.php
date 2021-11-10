@@ -13,16 +13,16 @@
         $host = "localhost";
         $user = "root";
         $password = "";
-        $db = "A&P";
+        $db = "AeP_webshop";
         
         $connect = new mysqli($host, $user, $password, $db); //Preparo la connessione al DB
 
         if ($connect->connect_error) 
             die("Errore connessione: " . $connect->connect_error);
 
-        if($connect->select_db("A&P") == 0) 
+        if($connect->select_db("AeP_webshop") == 0) 
         {
-            echo("Il database A&P non esiste");
+            echo("Il database AeP_webshop non esiste");
             exit;
         }
 

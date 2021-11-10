@@ -9,6 +9,7 @@ CREATE TABLE fornitori(
     email varchar(80) NOT NULL UNIQUE,
     pswd varchar(128) NOT NULL,
     ragioneSociale varchar(100) NOT NULL,
+    dirigente varchar (100) NOT NULL,
     sede varchar(100),
     sitoWeb varchar(100)
 );
@@ -26,10 +27,12 @@ CREATE TABLE clienti(
     username varchar(50) primary key NOT NULL,
     email varchar(80) NOT NULL UNIQUE,
     pswd varchar(128) NOT NULL,
+    nome varChar(50) NOT NULL,
+    cognome varChar(50) NOT NULL,
     residenza varchar(100) NOT NULL
 );
 
-CREATE TABLE fattura(
+CREATE TABLE fatture(
     id integer(10) primary key NOT NULL AUTO_INCREMENT,
     fkIntestatario varchar(50) NOT NULL,
     fkIdProdotto integer(10) NOT NULL,
