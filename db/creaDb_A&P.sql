@@ -14,11 +14,12 @@ CREATE TABLE fornitori(
 );
 
 CREATE TABLE prodotti(
-    codice integer(10) primary key NOT NULL AUTO_INCREMENT,
-    fkPIva varchar(11) NOT NULL,
+    id integer(10) primary key NOT NULL AUTO_INCREMENT,
+    fkPIvaFornitore varchar(11) NOT NULL,
     nome varchar(100) NOT NULL,
+    quantita integer(10),
     descrizione varchar(250),
-    FOREIGN KEY (fkIdFornitore) REFERENCES AccountCategories(code)
+    FOREIGN KEY (fkPIvaFornitore) REFERENCES fornitori(pIva)
 );
 
 CREATE TABLE utenti(
@@ -31,8 +32,10 @@ CREATE TABLE utenti(
 CREATE TABLE fattura(
     id integer(10) primary key NOT NULL AUTO_INCREMENT,
     fkIntestatario varchar(50) NOT NULL,
-    fkCodiceProdotto integer(10) NOT NULL,
+    fkIdProdotto integer(10) NOT NULL,
+    fkPIvaFornitore varchar(11) NOT NULL,
     emissione date NOT NULL,
     FOREIGN KEY (fkIntestatario) REFERENCES utenti(username),
-    FOREIGN KEY (fkCodiceProdotto) REFERENCES prodotti(codice)
+    FOREIGN KEY (fkIdProdotto) REFERENCES prodotti(id),
+    FOREIGN KEY (fkPIvaFornitore) REFERENCES fornitori(pIva)
 );
