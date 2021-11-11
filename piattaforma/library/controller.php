@@ -12,7 +12,9 @@
     /**Visualizzo l'azione richiesta dall'utente */
     $azioneRichiesta = $_REQUEST['azione'];
 
-    /**Gestisco le richieste dell'utente */
+    /**Gestisco le richieste dell'utente 
+     * per una questione di sicurezza alle password viene applicato un hash
+    */
     switch($azioneRichiesta)
     {
         case "login": login($_POST["email"], hash("sha512", $_POST["password"]));
@@ -21,7 +23,7 @@
         case "logout": logout();
             break;
             
-        case "registrazione": registrazione($_REQUEST['tipoRegistrazione']);
+        case "registrazione": registrazione($_REQUEST['tipoRegistrazione'], strtolower($_POST['email']), hash("sha512", $_POST["password"]));
             break;
     
         default: echo("error_0");
