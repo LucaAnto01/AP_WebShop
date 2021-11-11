@@ -15,7 +15,10 @@
     /**Gestisco le richieste dell'utente */
     switch($azioneRichiesta)
     {
-    case "login": login($_POST["email"], hash("sha512", $_POST["password"]));
+        case "login": login($_POST["email"], hash("sha512", $_POST["password"]));
+            break;
+        
+        case "registrazione": registrazione($_REQUEST['tipoRegistrazione']);
             break;
         
         default: echo("error_0");
