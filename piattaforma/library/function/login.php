@@ -3,6 +3,7 @@
     $connect = new mysqli($GLOBALS['host'], $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
 
     /**Funzione che cerca la corrispondenza tra email e password all'interno del DB nelle tabelle clienti | fornitori
+     * @param string email, string password(con sha512), string tabella da controllare
      * @return int [1 -> trovato | -1 -> non trovato]
      */
     function checkLogin($emailIn, $passwordIn, $tabellaCheck)
@@ -28,6 +29,9 @@
         return -1; //Nessuna corrispondenza trovata
     }
 
+    /**Funzione adibita all'esecuzione del login
+     * @param string email, stgring password(con sha512)
+     */
     function login($emailReq, $passwordReq)
     {     
         if ((isset($_SESSION['email'])) && ($_SESSION['email'] == $emailReq))
