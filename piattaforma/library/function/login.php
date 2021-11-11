@@ -55,8 +55,9 @@
         }
         
         else //REVIEW: facciamo altro o diamo un messaggio d'errore??? 
-            echo "Non trovato!"; //TODO: poi cambialo con un header verso la home page  
-
+            echo "Non trovato!"; //TODO: poi cambialo con un header verso la home page
+        
+        $GLOBALS['connect']->close(); //Chiudo la connessione al DB
     }
 
 ?>
