@@ -17,10 +17,13 @@
     {
         case "login": login($_POST["email"], hash("sha512", $_POST["password"]));
             break;
-        
+            
+        case "logout": logout();
+            break;
+            
         case "registrazione": registrazione($_REQUEST['tipoRegistrazione']);
             break;
-        
+    
         default: echo("error_0");
     }
 
