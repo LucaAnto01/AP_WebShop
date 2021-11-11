@@ -14,7 +14,12 @@
     <body>
 
         <div id="pagina"> 
-            <!-- TODO: crea funzione di contgrollo per controllare che i campi di input non siano vuoti -->
+            <!--  Con required si è obbligatti a scrivere qualcosa quindi non rimane vuoto-->
+            <form action="../library/controller.php" method="post">
+                email: <input type="text" id="email" required="required" name="email"><br>
+                Password: <input type="password" id="password" required="required" name="password"><br>
+                <input type="submit" name = "azione" value="login">
+            </form>
         </div>
 
     </body>
