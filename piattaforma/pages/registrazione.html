@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+
 <html lang="it">
 
     <head>
@@ -7,16 +9,53 @@
         <title>A&P WEB SHOP</title>
 
         <link rel="stylesheet" href="../style/theme.css">
-        <link rel="stylesheet" href="../style/indexStyle.css">
 
     </head>
 
     <body>
 
         <div id="pagina">
+            <h3>Scegli se vuoi fare la registrazione come cliente o fornitore?</h3>
+            <div class="dropdown">
+                <form>
+                    <select id="myDropdown">    
+                        <option value="1">FORNITORE</option>
+                        <option value="2">CLIENTE</option>
+                    </select>
+                  </form>
+            </div>
+            <div id="textbox">
+                <form action="../library/controller.php" method="post" id="regFornitore">
+                    email: <input type="text" id="email" required="required" name="email" placeholder="email"><br>
+                    Password: <input type="password" id="password" required="required" name="password" placeholder="password"><br>
+                    <input type="submit" name="azione" value="Registrazione Fornitore">
+                </form>
+                <form action="../library/controller.php" method="post" id="regCliente">
+                    email: <input type="text" id="email" required="required" name="email" placeholder="email"><br>
+                    Password: <input type="password" id="password" required="required" name="password" placeholder="password"><br>
+                    <input type="submit" name="azione" value="Registrazione Cliente">
+                </form>
+            </div>
 
         </div>
 
+    
+        <script>
+            document.getElementById("regCliente").style.display="none";
+            document.getElementById("regFornitore").style.display="none";
+
+            var e = document.getElementById("myDropdown");
+            var codice = e.value;
+
+            if(codice == 1){
+                document.getElementById("regFornitore").style.display="block";
+            }
+            if(codice == 2){
+                document.getElementById("regCliente").style.display="block";
+                document.getElementById("regFornitore").style.display="none";
+            }
+        </script>
     </body>
 
 </html>
+tiporegistrazione
