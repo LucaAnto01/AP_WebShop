@@ -16,14 +16,20 @@
     <body>
 
         <div id="pagina">
+
             <h3>Scegli se vuoi fare la registrazione come cliente o fornitore?</h3>
+
             <div class="dropdown">
+
                 <select id="myDropdown" onchange="show()">    
                     <option value="1">FORNITORE</option>
                     <option value="2">CLIENTE</option>
                 </select>
+
             </div>
+
             <div id="textbox">
+
                 <form action="../library/controller.php" method="post" id="regFornitore" style="display: none;">
                     Partita Iva: <input type="text" id="pIva" required="required" name="pIva" placeholder="pIva"><br>
                     email: <input type="text" id="email" required="required" name="email" placeholder="email"><br>
@@ -35,6 +41,7 @@
                     <input type="text" name="tipoRegistrazione" value="fornitore" style="display: none;">
                     <input type="submit" name="azione" value="registrazione">
                 </form>
+
                 <form action="../library/controller.php" method="post" id="regCliente" style="display: none;">
                     Username: <input type="text" id="username" required="required" name="username" placeholder="username"><br>
                     email: <input type="text" id="email" required="required" name="email" placeholder="email"><br>
@@ -45,13 +52,11 @@
                     <input type="text" name="tipoRegistrazione" value="cliente" style="display: none;">
                     <input type="submit" name="azione" value="registrazione">
                 </form>
-            </div>
-            <script>show();</script>
-        </div>
 
-    
+            </div>
+
+        </div>    
         
     </body>
 
 </html>
-tiporegistrazione
