@@ -1,5 +1,4 @@
 <?php 
-    //TODO: TESTALA
     $connect = new mysqli($GLOBALS['host'], $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
 
     /**Funzione adibita al controllo dell'email, se già presente nel DB annulla la registrazione
@@ -32,11 +31,11 @@
         $queryInserisciCliente = $GLOBALS['connect']->prepare("insert into clienti values('".$nuovoFornitore['username']."', '".$nuovoFornitore['email']."', ?, '".$nuovoFornitore['nome']."', '".$nuovoFornitore['cognome']."', '".$nuovoFornitore['residenza']."')");
 
         $password = mysqli_real_escape_string($GLOBALS['connect'], $nuovoFornitore['password']);
-        $query->bind_param('s', $password);
+        $queryInserisciCliente->bind_param('s', $password);
 
-        if($query->execute() == false)
+        if($queryInserisciCliente->execute() == false)
         {
-            echo("Errore");
+            echo("Error_3");
             exit;
         }
 
@@ -64,11 +63,11 @@
         $queryInserisciFornitore = $GLOBALS['connect']->prepare("insert into fornitori values('".$nuovoFornitore['pIva']."', '".$nuovoFornitore['email']."', ?, '".$nuovoFornitore['ragioneSociale']."', '".$nuovoFornitore['dirigente']."', '".$nuovoFornitore['sede']."', '".$nuovoFornitore['sitoWeb']."')");
 
         $password = mysqli_real_escape_string($GLOBALS['connect'], $nuovoFornitore['password']);
-        $query->bind_param('s', $password);
+        $queryInserisciFornitore->bind_param('s', $password);
 
-        if($query->execute() == false)
+        if($queryInserisciFornitore->execute() == false)
         {
-            echo("Errore");
+            echo("Error_4");
             exit;
         }
 
