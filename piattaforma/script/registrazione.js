@@ -1,5 +1,4 @@
-
-
+/**Funzione che mostra o nasconde il form in base al tipo di registrazione da effettuare */
 function show()
 {
     var e = document.getElementById("myDropdown");
