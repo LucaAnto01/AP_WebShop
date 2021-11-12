@@ -87,7 +87,7 @@
     {
         if(checkEmail($_POST['email']) < 0)
         {
-            echo("error_2");
+            echo("error_1");
             exit;
         }
 
@@ -98,9 +98,12 @@
             registrazioneFornitore($emailPst, $passwordPst);
 
         else
-            echo("error_1");
-
-        //TODO: reindirizza alla pagina di login
+        {
+            echo("error_2");
+            exit;
+        }
+            
+        header("refresh:5; url=../pages/login.html"); //Rendirizzamento alla pagina di login in 5 secondi
     }
 
 ?>

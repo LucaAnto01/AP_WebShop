@@ -41,7 +41,6 @@
             exit;
         }
         
-        /**TODO: testa se funziona e guarda all'inizio cosa fare */
         if(checkLogin($emailReq, $passwordReq, "clienti") > 0) //Controllo se l'utente che ha effettuato il login è un cliente
         {
             $_SESSION['tipoAccount'] = "cliente";
