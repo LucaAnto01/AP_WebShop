@@ -38,6 +38,8 @@ CREATE TABLE fatture(
     fkIdProdotto integer(10) NOT NULL,
     fkPIvaFornitore varchar(11) NOT NULL,
     emissione date NOT NULL,
+    quantitaProdotto integer(5) DEFAULT 1,
+    importo float NOT NULL CHECK(importo > 0),
     FOREIGN KEY (fkIntestatario) REFERENCES clienti(username),
     FOREIGN KEY (fkIdProdotto) REFERENCES prodotti(id),
     FOREIGN KEY (fkPIvaFornitore) REFERENCES fornitori(pIva)
