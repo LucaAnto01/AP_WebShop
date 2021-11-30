@@ -9,5 +9,3 @@ create user 'ferrari' IDENTIFIED by 'fornitore_ferrari';
 
 /*SET PASSWORD FOR 'admin'@'localhost' = PASSWORD('LaPassword!'); per settare la password*/
 /*FLUSH PRIVILEGES; per aggiornare i privilegi*/
-
-/*TODO: crea le viste!!!*/
