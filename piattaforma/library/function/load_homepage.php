@@ -8,10 +8,6 @@
 
     $connect = new mysqli($GLOBALS['host'], $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
 
-    //Nel caso in cui l'utente non sia loggato, o la sessione è scaduta, lo faccio riloggare
-    if((isset($_SESSION['email'])) && ($_SESSION['email'] == $emailReq))
-        echo("OKe");
-
     /**Funzione adibita all'ottenimento dei dati contenuti nella vista vetrina_prodotti 
      * TODO: decidi se restituire oppure no il risultato ottenuto e fare nell'altra funzione o qui l'encode
     */
@@ -44,7 +40,15 @@
     /**Funzione adibita all'ottenimento dinamico dei dati utili a comporre la home page */
     function loadHomePage()
     {
-        $tipoAccount = $_SESSION['tipoAccount'];
+        //Nel caso in cui l'utente non sia loggato, o la sessione è scaduta, lo faccio riloggare
+        if(!isset($_SESSION['email']))
+        {
+            echo("<script type='text/javascript'>alert('Devi prima effettuare il login!');</script>");
+            header("refresh:5; url=../pages/login.html");
+        }
+            
+        else //Se l'utente è loggato posso settare il tipo di account
+            $tipoAccount = $_SESSION['tipoAccount'];
 
         //TODO: la parte di stampa comune e ciclo comune
         
