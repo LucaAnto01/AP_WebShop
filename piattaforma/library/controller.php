@@ -5,6 +5,7 @@
     include "function/login.php";
     include "function/logout.php";
     include "function/registrazione.php";
+    include "function/load_homepage.php";
 
     if (!isset($_SESSION['email'])) //Se non ci sono utenti loggati
         session_start();
@@ -24,6 +25,9 @@
             break;
             
         case "registrazione": registrazione($_REQUEST['tipoRegistrazione'], strtolower($_POST['email']), hash("sha512", $_POST["password"]));
+            break;
+            
+        case "home_page": loadHomePage();
             break;
     
         default: echo("error_0");
