@@ -43,13 +43,13 @@
         
         if(checkLogin($emailReq, $passwordReq, "clienti") > 0) //Controllo se l'utente che ha effettuato il login è un cliente
         {
-            $_SESSION['tipoAccount'] = "cliente";
+            $_SESSION['tipoAccount'] = "clienti";
             echo "Trovato!"; //REVIEW: per test, poi rimuovilo
         }
 
         else if (checkLogin($emailReq, $passwordReq, "fornitori") > 0) //Controllo se l'utente che ha effettuato il login è un fornitore
         {
-            $_SESSION['tipoAccount'] = "fornitore";
+            $_SESSION['tipoAccount'] = "fornitori";
             echo "Trovato!"; //REVIEW: per test, poi rimuovilo
         }
         
