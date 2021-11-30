@@ -35,7 +35,7 @@
 
         if($queryInserisciCliente->execute() == false)
         {
-            echo("Error_3");
+            echo("error_3");
             exit;
         }
 
@@ -67,7 +67,7 @@
 
         if($queryInserisciFornitore->execute() == false)
         {
-            echo("Error_4");
+            echo("error_4");
             exit;
         }
 

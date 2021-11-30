@@ -34,7 +34,7 @@
      */
     function login($emailReq, $passwordReq)
     {     
-        if ((isset($_SESSION['email'])) && ($_SESSION['email'] == $emailReq))
+        if((isset($_SESSION['email'])) && ($_SESSION['email'] == $emailReq))
         {
             echo "Sei già loggato, verrai rendirizzato alla pagina del tuo profilo tra 5 secondi...";
             header("refresh:5; url=../index.html"); //Rendirizzamento alla home page in 5 secondi TODO: cambia l'indirizzo con quello della pagina del profilo
@@ -45,12 +45,14 @@
         {
             $_SESSION['tipoAccount'] = "clienti";
             echo "Trovato!"; //REVIEW: per test, poi rimuovilo
+            header("refresh:5; url=../index.html");
         }
 
         else if (checkLogin($emailReq, $passwordReq, "fornitori") > 0) //Controllo se l'utente che ha effettuato il login è un fornitore
         {
             $_SESSION['tipoAccount'] = "fornitori";
             echo "Trovato!"; //REVIEW: per test, poi rimuovilo
+            header("refresh:5; url=../index.html"); //TODO: mandalo alla home page
         }
         
         else //REVIEW: facciamo altro o diamo un messaggio d'errore??? 

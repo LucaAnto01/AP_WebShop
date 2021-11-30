@@ -8,6 +8,7 @@
         if(!isset($_SESSION['email']))
             header("refresh:5; url=../../pages/registrazione.html");
 
+        //TODO: fai tutto
         
     }
 
