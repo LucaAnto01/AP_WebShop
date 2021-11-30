@@ -1,3 +1,5 @@
-SELECT c.email AS email, c.nome AS nome, c.cognome AS cognome, c.username AS username, c.residenza AS residenza, p.id AS idprodotto, p.nome AS prodotto /*TODO: AGGIUGNI L'IMPORTO DELLA FATTURA*/
-FROM clienti c, prodotti p, fatture f
-WHERE c.username = f.fkIntestatario, p.id = f.fkIdProdotto;
+/*Vista riservata ai clienti, forisce la lista dei prodotti disponibili associati ai rispettivi venditori*/
+CREATE VIEW vetrina_prodotti AS (SELECT p.nome AS prodotto, p.descrizione AS descrizione, p.costo AS costo, f.ragioneSociale AS fornitore
+                                    FROM fornitori f, prodotti p
+                                    WHERE f.pIva = p.fkPIvaFornitore AND p.quantita > 0
+                                    ORDER BY p.nome);
