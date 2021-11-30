@@ -18,8 +18,9 @@ CREATE TABLE prodotti(
     id integer(10) primary key NOT NULL AUTO_INCREMENT,
     fkPIvaFornitore varchar(11) NOT NULL,
     nome varchar(100) NOT NULL,
-    quantita integer(10),
     descrizione varchar(250),
+    costo float NOT NULL,
+    quantita integer(10) DEFAULT 1,
     FOREIGN KEY (fkPIvaFornitore) REFERENCES fornitori(pIva)
 );
 
