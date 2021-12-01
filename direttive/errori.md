@@ -5,3 +5,5 @@ error_3 -> errore nella fase delle registrazione, nell'inserimento del cliente
 error_4 -> errore nella fase delle registrazione, nell'inserimento del fornitore
 error_5 -> errore nella query sulla vista vetrina_prodotti, non c'è la vista o non ci sono prodotti
 error_6 -> errore nella query sulla vista magazzini, non c'è la vista o non ci sono prodotti o non ci sono fornitori
+error_7 -> errore nella query dell'acquisto, non è possibile effettuatlo o non c'è un prodotto con quel ID o 
+           non ce n'è una quantità sufficiente

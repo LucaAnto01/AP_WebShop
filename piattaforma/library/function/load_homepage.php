@@ -14,7 +14,7 @@
     */
     function getVetrinaProdotti()
     {
-        $queryVetrinaProdotti = "SELECT * 
+        $queryVetrinaProdotti = "SELECT prodotto, descrizione, costo, quantita, fornitore 
                                  FROM vetrina_prodotti";
         
         $result = $GLOBALS['connect']->query($queryVetrinaProdotti);
@@ -36,6 +36,7 @@
 
         else
             echo("error_5");
+
     }
 
     function getProdotti()
@@ -47,7 +48,7 @@
         $result = $GLOBALS['connect']->query($queryMagazzini);
 
         //Controllo di aver effettivamente avuto dei risultati
-        if ($result->num_rows > 0) 
+        if($result->num_rows > 0) 
         {
             //Array che conterrà i risultati della query
             $magazzino = Array();
@@ -63,34 +64,37 @@
 
         else
             echo("error_6");
+
     }
 
     /**Funzione adibita all'ottenimento dinamico dei dati utili a comporre la home page */
     function loadHomePage()
     {
-        //Nel caso in cui l'utente non sia loggato, o la sessione è scaduta, lo faccio riloggare
-        if(!isset($_SESSION['email']))
+        //Controllo che l'utente sia loggato
+        if(isset($_SESSION['email']))
         {
-            echo("<script type='text/javascript'>alert('Devi prima effettuare il login!');</script>");
-            header("refresh:5; url=../pages/login.html");
-        }
-            
-        else //Se l'utente è loggato posso settare il tipo di account
             $tipoAccount = $_SESSION['tipoAccount'];
 
-        //TODO: la parte di stampa comune e ciclo comune
-        
-        if($tipoAccount == "clienti")
-        {
-            //TODO: bottone per l'acquisto e alert con richiesta di conferma d'acquisto
-            /*$vetrina = */getVetrinaProdotti();
-        }
+            if($tipoAccount == "clienti")
+            {
+                //TODO: bottone per l'acquisto e alert con richiesta di conferma d'acquisto
+                /*$vetrina = */getVetrinaProdotti();
+            }
+                
             
-        
-        if($tipoAccount == "fornitori")
-        {
-            getProdotti();
-            //TODO: bottone per l'acquisto e alert con richiesta di conferma d'acquisto
-        }    
+            if($tipoAccount == "fornitori")
+            {
+                getProdotti();
+                //TODO: bottone per l'acquisto e alert con richiesta di conferma d'acquisto
+            }  
+        }
+              
+         //Nel caso in cui l'utente non sia loggato, o la sessione è scaduta, lo faccio riloggare
+         else
+         {
+             echo("<script type='text/javascript'>alert('Devi prima effettuare il login!');</script>");
+             header("refresh:0.1; url=../pages/login.html");
+         }
+
     }
 ?>

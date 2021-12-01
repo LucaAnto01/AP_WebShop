@@ -6,6 +6,7 @@
     include "function/logout.php";
     include "function/registrazione.php";
     include "function/load_homepage.php";
+    include "function/effettua_acquisto.php";
 
     if (!isset($_SESSION['email'])) //Se non ci sono utenti loggati
         session_start();
@@ -28,6 +29,9 @@
             break;
             
         case "home_page": loadHomePage();
+            break;
+        
+        case "acquisto": effettua_acquisto($_REQUEST['idprodotto'], $_REQUEST['quantita']);
             break;
     
         default: echo("error_0");

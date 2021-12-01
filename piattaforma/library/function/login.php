@@ -20,7 +20,7 @@
         $query->execute();
         $result = $query->get_result();
 
-        if ($result->num_rows > 0)
+        if($result->num_rows > 0)
         {
             $_SESSION['email'] = $emailIn;
             return 1; //Corrispondenza trovata
