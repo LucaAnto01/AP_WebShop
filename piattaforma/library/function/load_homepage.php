@@ -48,7 +48,7 @@
         $result = $GLOBALS['connect']->query($queryMagazzini);
 
         //Controllo di aver effettivamente avuto dei risultati
-        if ($result->num_rows > 0) 
+        if($result->num_rows > 0) 
         {
             //Array che conterrà i risultati della query
             $magazzino = Array();
