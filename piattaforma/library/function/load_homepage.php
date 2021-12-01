@@ -8,7 +8,8 @@
 
     $connect = new mysqli($GLOBALS['host'], $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
 
-    /**Funzione adibita all'ottenimento dei dati contenuti nella vista vetrina_prodotti 
+    /**Funzione adibita all'ottenimento dei dati contenuti nella vista:
+     *  -vetrina_prodotti: se è loggato un utente o nel magazzino dei produttori
      * TODO: decidi se restituire oppure no il risultato ottenuto e fare nell'altra funzione o qui l'encode
     */
     function getVetrinaProdotti()
@@ -37,6 +38,33 @@
             echo("error_5");
     }
 
+    function getProdotti()
+    {
+        $queryMagazzini = "SELECT m.* 
+                           FROM magazzini m, fornitori f
+                           WHERE m.PIva = f.pIva AND f.email = '".$_SESSION['email']."'";
+        
+        $result = $GLOBALS['connect']->query($queryMagazzini);
+
+        //Controllo di aver effettivamente avuto dei risultati
+        if ($result->num_rows > 0) 
+        {
+            //Array che conterrà i risultati della query
+            $magazzino = Array();
+
+            //Faccio un ciclo in cui scorro tutte le righe ottenute come risultato e le inserisco in un array
+            while($row = $result->fetch_assoc()) 
+                array_push($magazzino, $row);
+
+            //Converto in json l'array risultato ottenuto al fine di poterlo gestire in ajax
+            echo json_encode($magazzino);
+
+        }
+
+        else
+            echo("error_6");
+    }
+
     /**Funzione adibita all'ottenimento dinamico dei dati utili a comporre la home page */
     function loadHomePage()
     {
@@ -55,12 +83,13 @@
         if($tipoAccount == "clienti")
         {
             //TODO: bottone per l'acquisto e alert con richiesta di conferma d'acquisto
-            $vetrina = getVetrinaProdotti();
+            /*$vetrina = */getVetrinaProdotti();
         }
             
         
         if($tipoAccount == "fornitori")
         {
+            getProdotti();
             //TODO: bottone per l'acquisto e alert con richiesta di conferma d'acquisto
         }    
     }
