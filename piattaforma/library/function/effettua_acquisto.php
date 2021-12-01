@@ -12,8 +12,8 @@
      */
     function effettuaAcquisto($idProdotto, $quantita)
     {
-        //Controllo che l'utente sia loggato
-        if(isset($_SESSION['email']))
+        //Controllo che l'utente sia loggato e per sicurezza e coerenza che sia un cliente
+        if((isset($_SESSION['email'])) && ($_SESSION['tipoAccount'] == "clienti"))
         {
             //Verifico che sia possibile effettuare l'acquisto
             $queryAcquisto = "SELECT *
@@ -25,6 +25,7 @@
             if($result->num_rows > 0) 
             {
                 //TODO: genera la fattura e diminuisci la quantità del prodotto acquistato
+                echo("Funziona");
             }
             
             else

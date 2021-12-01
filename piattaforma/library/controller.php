@@ -31,7 +31,7 @@
         case "home_page": loadHomePage();
             break;
         
-        case "acquisto": effettua_acquisto($_REQUEST['idprodotto'], $_REQUEST['quantita']);
+        case "acquisto": effettuaAcquisto($_REQUEST['idprodotto'], $_REQUEST['quantita']);
             break;
     
         default: echo("error_0");
