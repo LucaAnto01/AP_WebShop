@@ -16,6 +16,11 @@
     <body>
 
         <div id="pagina">
+            <div id="logo">
+                <img src="../img/logo.png">
+                <br> 
+                <b>Registrati al A&P WebShop: </b>
+            </div>
 
             <h3>Selezionare il tipo di account che si desidera creare</h3>
 
@@ -31,24 +36,24 @@
             <div id="textbox">
 
                 <form action="../library/controller.php" method="post" id="regFornitore" style="display: none;">
-                    Partita Iva: <input type="text" id="pIva" required="required" name="pIva" placeholder="pIva"><br>
-                    email: <input type="text" id="email" required="required" name="email" placeholder="email"><br>
-                    Password: <input type="password" id="password" required="required" name="password" placeholder="password"><br>
-                    RagioneSociale: <input type="text" id="ragioneSociale" required="required" name="ragioneSociale" placeholder="ragioneSociale"><br>
-                    Dirigente: <input type="text" id="dirigente" required="required" name="dirigente" placeholder="dirigente"><br>
-                    Sede: <input type="text" id="sede" required="required" name="sede" placeholder="sede"><br>
-                    SitoWeb: <input type="text" id="sitoWeb" required="required" name="sitoWeb" placeholder="sitoWeb"><br>
+                    <input type="text" id="Partita iva " required="required" name="pIva" placeholder="pIva"><br>
+                    <input type="text" id="email" required="required" name="email" placeholder="email"><br>
+                    <input type="password" id="password" required="required" name="password" placeholder="password"><br>
+                    <input type="text" id="ragione sociale" required="required" name="ragioneSociale" placeholder="ragioneSociale"><br>
+                    <input type="text" id="dirigente" required="required" name="dirigente" placeholder="dirigente"><br>
+                    <input type="text" id="sede" required="required" name="sede" placeholder="sede"><br>
+                    <input type="text" id="sito web " required="required" name="sitoWeb" placeholder="sitoWeb"><br>
                     <input type="text" name="tipoRegistrazione" value="fornitore" style="display: none;"><!--Tag di comodo, per gestire poi l'inserimento del nuovo acccount lato server -->
                     <input type="submit" name="azione" value="registrazione">
                 </form>
 
                 <form action="../library/controller.php" method="post" id="regCliente" style="display: none;">
-                    Username: <input type="text" id="username" required="required" name="username" placeholder="username"><br>
-                    email: <input type="text" id="email" required="required" name="email" placeholder="email"><br>
-                    Password: <input type="password" id="password" required="required" name="password" placeholder="password"><br>
-                    Nome: <input type="text" id="nome" required="required" name="nome" placeholder="nome"><br>
-                    Cognome: <input type="text" id="cognome" required="required" name="cognome" placeholder="cognome"><br>
-                    Residenza: <input type="text" id="residenza" required="required" name="residenza" placeholder="residenza"><br>
+                    <input type="text" id="username" required="required" name="username" placeholder="username"><br>
+                    <input type="text" id="email" required="required" name="email" placeholder="email"><br>
+                    <input type="password" id="password" required="required" name="password" placeholder="password"><br>
+                    <input type="text" id="nome" required="required" name="nome" placeholder="nome"><br>
+                    <input type="text" id="cognome" required="required" name="cognome" placeholder="cognome"><br>
+                    <input type="text" id="residenza" required="required" name="residenza" placeholder="residenza"><br>
                     <input type="text" name="tipoRegistrazione" value="cliente" style="display: none;"><!--Tag di comodo, per gestire poi l'inserimento del nuovo acccount lato server -->
                     <input type="submit" name="azione" value="registrazione">
                 </form>

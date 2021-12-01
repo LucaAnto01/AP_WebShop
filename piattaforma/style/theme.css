@@ -1,15 +1,73 @@
 /*Tema generale del progetto*/
 
+
 body
 {
-    background-color: rgba(177, 177, 177, 0.877);
+    background-color: rgba(244, 91, 105, 1);
     font-family: Verdana, Geneva, sans-serif;
+    overflow: auto;
 }
 
 #pagina
 {
     width: 100%;
+    overflow: hidden;
+    background-color: white;
+    padding: 20px 30px 30px 30px;
+    border-radius: 10px; /* Bordi smussati */
+    position: fixed; 
+    top: 10%;
+    left: 35%;
+    width: 25%; 
+    
 }
+#logo 
+{
+    display: block;
+    margin-left: 100px;
+    padding-bottom: 10 px;
+}
+
+
+input[type=text] {
+    border-radius: 5px;
+    background: #D2D2D2;
+    width: 70%;
+    border: 0;
+    padding: 10px 10px;
+    margin-top: 10px;
+    right: 10%;
+    text-transform: uppercase;
+  }
+
+
+input[type=password] {
+    border-radius: 5px;
+    background: #D2D2D2;
+    border: 0;
+    padding: 10px 10px;
+    width: 70%;
+    right: 10%;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+
+input[type=submit]{
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    width: 40%;
+    border: 0;
+    background-color: rgba(244, 91, 105, 1);
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px 10px;
+
+    
+}
+
 
 /*Bottone relativo a funzioni (es. accesso, registrazione)*/
 .functButton
@@ -19,3 +77,4 @@ body
     border: 2px solid white;
     background-color: rgb(119, 161, 170);
 }
+
