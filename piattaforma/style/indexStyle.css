@@ -1,37 +1,85 @@
 /*Tema relativo alla pagina index.html*/
+body
+{
+    background-color: rgba(244, 91, 105, 1);
+    font-family: Verdana, Geneva, sans-serif;
+    overflow: auto;
+}
+
+#pagina
+{
+    width: 80%;
+    overflow: hidden;
+    background-color: white;
+    padding: 10px 30px 30px 10px;
+    border-radius: 10px; /* Bordi smussati */
+    margin-top: 5%;
+    margin-left: 25%;
+    width: 40%; 
+}
+
+#logo 
+{
+    width: 100%;
+    margin-left: 35%;
+    margin-right: 23%;
+    padding-bottom: 10 px;
+}
 
 #titolo
 {
     width: 100%;
     margin-top: 3%;
     padding-bottom: 5%;
-    color: rgb(119, 161, 170);
+   
     text-align: center;
     font-size: large;
 }
 
-.sottoTitolo
+body
 {
-    width: 100%;
+    background-color: rgba(244, 91, 105, 1);
+    font-family: Verdana, Geneva, sans-serif;
+    overflow: auto;
+}
+.sottoTitolo
+{   
+    
     padding-bottom: 1%;
     text-align: center;
 }
 
 .sottoTitolo h3
 {
-    margin-left: 33%;
-    width: 35%;
+    margin-left: 1%;
+    width: 100%;
 }
 
 .sottoTitolo h5
 {
-    margin-left: 35%;
-    width: 30%;
+    margin-left: 26%;
+    width: 50%;
 }
 
+.functButton{
+    cursor: pointer;
+   
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    width: 40%;
+    border: 0;
+    background-color: rgba(244, 91, 105, 1);
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px 10px;
+    margin-left: 82%;
+    
+}
 #button
 {
     width: 100%;
+    display:inline-block;
 }
 
 .btDiv
