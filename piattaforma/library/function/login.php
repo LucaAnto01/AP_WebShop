@@ -23,6 +23,12 @@
         if($result->num_rows > 0)
         {
             $_SESSION['email'] = $emailIn;
+
+            if($tabellaCheck == "clienti")
+            {
+                while($row = $result->fetch_assoc())
+                    $_SESSION['username'] = $row['username']; //Dato utile per creare la fattura
+            }
             return 1; //Corrispondenza trovata
         } 
 

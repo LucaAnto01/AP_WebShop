@@ -10,22 +10,43 @@
     /**Funzione adibita all'acquisto di un determinato prodotto sulla base del suo codice da parte di un cliente
      * @param inumero intero idProdotto, numero intero quantita
      */
-    function effettuaAcquisto($idProdotto, $quantita)
+    function effettuaAcquisto($idProdotto, $costo, $quantita)
     {
         //Controllo che l'utente sia loggato e per sicurezza e coerenza che sia un cliente
         if((isset($_SESSION['email'])) && ($_SESSION['tipoAccount'] == "clienti"))
         {
             //Verifico che sia possibile effettuare l'acquisto
             $queryAcquisto = "SELECT *
-                                     FROM vetrina_prodotti v
-                                     WHERE v.id_prodotto = '".$idProdotto."'  AND v.quantita >= '".$quantita."'";
+                              FROM vetrina_prodotti v
+                              WHERE v.id_prodotto = '".$idProdotto."'  AND v.quantita >= '".$quantita."'";
         
             $result = $GLOBALS['connect']->query($queryAcquisto);
 
             if($result->num_rows > 0) 
             {
-                //TODO: genera la fattura e diminuisci la quantità del prodotto acquistato
-                echo("Funziona");
+                $pIvaFornitore;
+
+                while($row = $result->fetch_assoc()) //C'è un solo elemento 
+                    $pIvaFornitore = $row['pIva_fornitore']; //Ricavo il numero della partita iva del fornitore al fine di creare la fattura
+
+                $importo = $costo * $quantita;
+
+                //Genero la fattura a seguito dell'acquisto avvenuto
+                $queryFattura = "INSERT INTO fatture(fkIntestatario, fkIdProdotto, fkPIvaFornitore, emissione, quantitaProdotto, importo) 
+                                        VALUES('".$_SESSION['username']."', '".$idProdotto."', '".$pIvaFornitore."', '".date("Y/m/d")."', '".$quantita."', '".$importo."')";
+                
+                //TODO: poi rimuovilo
+                if($GLOBALS['connect']->query($queryFattura))
+                    echo("Funziona");
+                
+                //Aggiorno la quantità di prodotto disponibile a seguito dell'acquisto
+                $queryUpdateQuantita = "UPDATE prodotti
+                                        SET quantita = quantita - ".$quantita." 
+                                        WHERE id = '".$idProdotto."'";
+
+                if($GLOBALS['connect']->query($queryUpdateQuantita))
+                    echo("Funziona");
+                //TODO: diminuisci la quantità del prodotto acquistato
             }
             
             else
