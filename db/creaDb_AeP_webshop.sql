@@ -4,6 +4,8 @@ CREATE DATABASE AeP_webshop;
 /**Seleziono il database precedentemente creato al fine di potervi operare*/
 USE AeP_webshop;
 
+/**TODO: aggiungi i CASCADE*/
+
 CREATE TABLE fornitori(
     pIva varchar(11) primary key NOT NULL,
     email varchar(80) NOT NULL UNIQUE,
@@ -22,6 +24,8 @@ CREATE TABLE prodotti(
     costo float NOT NULL,
     quantita integer(10) DEFAULT 1,
     FOREIGN KEY (fkPIvaFornitore) REFERENCES fornitori(pIva)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE 
 );
 
 CREATE TABLE clienti(
@@ -44,4 +48,6 @@ CREATE TABLE fatture(
     FOREIGN KEY (fkIntestatario) REFERENCES clienti(username),
     FOREIGN KEY (fkIdProdotto) REFERENCES prodotti(id),
     FOREIGN KEY (fkPIvaFornitore) REFERENCES fornitori(pIva)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE 
 );
