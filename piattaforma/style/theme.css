@@ -11,15 +11,13 @@ body
 #pagina
 {
 
-    overflow: hidden;
     background-color: white;
     padding: 20px 30px 30px 30px;
     border-radius: 10px; /* Bordi smussati */
-    position: fixed; 
+    margin: 10% 10% 10% 33%;
     top: 10%;
     left: 35%;
     width: 25%; 
-    
 }
 #logo 
 {
@@ -65,23 +63,14 @@ input[type=submit]{
     color: #fff;
     font-size: 16px;
     text-transform: uppercase;
-    width: 40%;
+    width: 50%;
     border: 0;
     background-color: rgba(244, 91, 105, 1);
     border-radius: 5px;
     margin-top: 10px;
-    padding: 10px 10px;
-
-    
+    padding: 10px 10px;   
 }
 
 
-/*Bottone relativo a funzioni (es. accesso, registrazione)*/
-.functButton
-{
-    height: 35px;
-    border-radius: 10%;
-    border: 2px solid white;
-    background-color: rgb(119, 161, 170);
-}
+
 
