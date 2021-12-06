@@ -27,6 +27,9 @@
             
         case "registrazione": registrazione($_REQUEST['tipoRegistrazione'], strtolower($_POST['email']), hash("sha512", $_POST["password"]));
             break;
+        
+        case "tipo_account": getTipoUtente();
+            break;
             
         case "home_page": loadHomePage();
             break;

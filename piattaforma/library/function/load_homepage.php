@@ -1,6 +1,13 @@
 <?php
 
-    //TODO: facciamo anche il carrello ???
+    /**Funzione di comodo lato client per la gestione del caricamento della home page dinamicamente
+     * @return string tipoAccount
+     */
+    function getTipoUtente()
+    {
+        echo($_SESSION['tipoAccount']);
+    }
+
     /**Parte dinamica della pagina iniziale del sito, due opzioni di aricamento a seoconda del tipo di account:
      * - clienti: visualizzazione di tutti i prodotti disponibili, possibilità di effettuare una ricerca ed ordinare i prodotti.
      * - fornitori: visualizzo tutti i prodotti posseduti con la possibilità di aggiungerne, rimuoverne e 

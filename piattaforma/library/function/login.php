@@ -51,14 +51,14 @@
         {
             $_SESSION['tipoAccount'] = "clienti";
             echo "Trovato!"; //REVIEW: per test, poi rimuovilo
-            header("refresh:5; url=../index.html");
+            header("refresh:5; url=../pages/home.html");
         }
 
         else if (checkLogin($emailReq, $passwordReq, "fornitori") > 0) //Controllo se l'utente che ha effettuato il login è un fornitore
         {
             $_SESSION['tipoAccount'] = "fornitori";
             echo "Trovato!"; //REVIEW: per test, poi rimuovilo
-            header("refresh:5; url=../index.html"); //TODO: mandalo alla home page
+            header("refresh:5; url=../pages/home.html"); //TODO: mandalo alla home page
         }
         
         else //REVIEW: facciamo altro o diamo un messaggio d'errore??? 
