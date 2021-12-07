@@ -83,17 +83,11 @@
             $tipoAccount = $_SESSION['tipoAccount'];
 
             if($tipoAccount == "clienti")
-            {
-                //TODO: bottone per l'acquisto e alert con richiesta di conferma d'acquisto
-                /*$vetrina = */getVetrinaProdotti();
-            }
+                getVetrinaProdotti();
                 
             
             if($tipoAccount == "fornitori")
-            {
                 getProdotti();
-                //TODO: bottone per l'acquisto e alert con richiesta di conferma d'acquisto
-            }  
         }
               
          //Nel caso in cui l'utente non sia loggato, o la sessione è scaduta, lo faccio riloggare

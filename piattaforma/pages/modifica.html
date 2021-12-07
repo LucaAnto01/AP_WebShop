@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title>A&P WEB SHOP</title>
+
+        <link rel="stylesheet" href="">
+
+    </head>
+
+    <body>
+
+        <div id="pagina">
+            <div id="modifica">
+                <form name="modificaForm">
+                    Campo da modificare:<input list="modCampo" name="modCampo" autocomplete="off" /><datalist id="modCampo">
+                        <option>nome</option>
+                        <option>descrizione</option>
+                        <option>costo</option>  
+                        <option>quantita</option>                      
+                    </datalist><br>
+                    Nuovo valore:<input type="text" id="modValore" name="modValore"><br>
+                    <button type="button" onclick="modificaValore('modificaForm')">Modifica valore</button>
+                </form>
+            </div>
+        </div>
+
+    </body>
+
+</html>

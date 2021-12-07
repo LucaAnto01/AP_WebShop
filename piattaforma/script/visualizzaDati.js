@@ -19,7 +19,7 @@ function checkVisualizza()
                 try
                 {
                     var tipoAccount = xmlhttp.responseText;
-
+ 
                     if(tipoAccount == "clienti")
                         visualizzaVetrina();
 
@@ -62,12 +62,12 @@ function visualizzaVetrina()
 
                     var stringHtml = "<h3>Prodotti A&P web shop</h3> \
                                       <table> \
-                                        <tr><th>Prodotto</th><th>Descrizione</th><th>Costo</th><th>Quantita'</th><th>Fornitore</th></tr>";
+                                        <tr><th>Prodotto</th><th>Descrizione</th><th>Costo</th><th>Quantita'</th></tr>";
 
                     //TODO: la funzione per l'acquisto e aggiungi l'id del prodotto e la p.iva del fornitore --> non visibili
                     resultRequest.forEach(element => 
                     {
-                        stringHtml += "<tr><td>" + element.prodotto + "</td><td>" + element.descrizione + "</td><td>" + element.costo + "</td><td>" + element.quantita + "</td><td>" + element.fornitore + "</td><td><button type='button' onclick='FiltraVisualizzazioneMusei(\"" + element.prodotto + "\")'>Acquista</button>"+"</td></tr>";
+                        stringHtml += "<tr><td>" + element.prodotto + "</td><td>" + element.descrizione + "</td><td>" + element.costo + "</td><td>" + element.quantita + "</td><td><button type='button' onclick='FiltraVisualizzazioneMusei(\"" + element.prodotto + "\")'>Acquista</button>"+"</td></tr>";
                     });
 
                     //TODO: usiamo il link per effettuare l'acquisto?
@@ -121,7 +121,7 @@ function visualizzaMagazzino()
                     //TODO: la funzione per la modifica
                     resultRequest.forEach(element => 
                     {
-                        stringHtml += "<tr><td>" + element.id_prodotto + "</td><td>" + element.prodotto + "</td><td>" + element.descrizione + "</td><td>" + element.costo + "</td><td>" + element.quantita + "</td><td><button type='button' onclick='FiltraVisualizzazioneMusei(\"" + element.id_prodotto + "\")'>Acquista</button>"+"</td></tr>";
+                        stringHtml += "<tr><td>" + element.id_prodotto + "</td><td>" + element.prodotto + "</td><td>" + element.descrizione + "</td><td>" + element.costo + "</td><td>" + element.quantita + "</td><td><button type='button' onclick='preparaModifica(\"" + element.id_prodotto + "\")'>Modifica</button>"+"</td></tr>";
                     });
 
                     //TODO: usiamo il link per effettuare l'acquisto?
@@ -130,7 +130,8 @@ function visualizzaMagazzino()
                         stringHtml += "<tr><td>" + element.QQ_TitoloQuadro + "</td><td>" + element.QQ_AnnoEsecuzione + "</td><td>" + element.QQ_Tecnica + "</td><td>" + element.QQ_Larghezza + " x " + element.QQ_Altezza + "</td><td>" + element.QQ_Note + '</td><td><a href="Controller.php?azione=filtraMusei&codiceMuseo=' + element.QQ_CodiceMuseo + '">Visualizza museo</a></td></tr>';
                     });*/
 
-                    stringHtml += "</table>";
+                    stringHtml += "</table><br>";
+                    stringHtml += "<iframe id=\"popupFrame\" src=\"modifica.html\" style=\"display:none\"></iframe>";
                     document.getElementById('contenuto').innerHTML = stringHtml;
                     
                 }
@@ -146,4 +147,24 @@ function visualizzaMagazzino()
 
     xmlhttp.open("GET", "../library/controller.php?azione=home_page", true);
     xmlhttp.send();
+}
+
+function preparaModifica(idProd)
+{
+    document.getElementById("frameModifica").style.display = "";
+    xmlhttp.onreadystatechange =
+    function() 
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+        {
+            if(xmlhttp.responseText == "error_0")
+                alert("Errore nella ricerca dell'azione");
+            
+        }
+    }
+
+    xmlhttp.open("POST", "../library/controller.php", true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    //Invocazione AJAX e passaggio di parametri
+    xmlhttp.send("azione=prepara_modifica&idprodotto=" + idProd);
 }
