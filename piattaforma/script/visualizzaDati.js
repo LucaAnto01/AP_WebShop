@@ -1,5 +1,25 @@
 var xmlhttp = new XMLHttpRequest(); //Variabile gestione interrogazioni client-server
 
+function preparaModifica(idProd)
+{
+    document.getElementById("popupFrame").style.display = "inline";
+
+    xmlhttp.onreadystatechange =
+    function() 
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+        {
+            if(xmlhttp.responseText == "error_0")
+                alert("Errore nella ricerca dell'azione");           
+        }
+    }
+
+    xmlhttp.open("POST", "../library/controller.php", true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    //Invocazione AJAX e passaggio di parametri
+    xmlhttp.send("azione=prepara_modifica&idprodotto=" + idProd);
+}
+
 /**Funzione adibita alla creazione dinamica della pagina
  * Se l'utente loggato è un cliente --> visualizzaVetrina()
  * Se l'utente loggato è un fornitore --> visualizzaMagazzino()
@@ -147,24 +167,4 @@ function visualizzaMagazzino()
 
     xmlhttp.open("GET", "../library/controller.php?azione=home_page", true);
     xmlhttp.send();
-}
-
-function preparaModifica(idProd)
-{
-    document.getElementById("frameModifica").style.display = "";
-    xmlhttp.onreadystatechange =
-    function() 
-    {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
-        {
-            if(xmlhttp.responseText == "error_0")
-                alert("Errore nella ricerca dell'azione");
-            
-        }
-    }
-
-    xmlhttp.open("POST", "../library/controller.php", true);
-    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    //Invocazione AJAX e passaggio di parametri
-    xmlhttp.send("azione=prepara_modifica&idprodotto=" + idProd);
 }

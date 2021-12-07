@@ -7,6 +7,7 @@
         <title>A&P WEB SHOP</title>
 
         <link rel="stylesheet" href="">
+        <script src="../script/modifica.js"></script>
 
     </head>
 
@@ -14,7 +15,7 @@
 
         <div id="pagina">
             <div id="modifica">
-                <form name="modificaForm">
+                <form action="../library/controller.php" method="post">
                     Campo da modificare:<input list="modCampo" name="modCampo" autocomplete="off" /><datalist id="modCampo">
                         <option>nome</option>
                         <option>descrizione</option>
@@ -22,7 +23,7 @@
                         <option>quantita</option>                      
                     </datalist><br>
                     Nuovo valore:<input type="text" id="modValore" name="modValore"><br>
-                    <button type="button" onclick="modificaValore('modificaForm')">Modifica valore</button>
+                    <input type="submit" name="azione" value="modifica_prodotto" onclick="aggiornaPagina()">
                 </form>
             </div>
         </div>

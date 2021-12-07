@@ -38,7 +38,7 @@
         case "prepara_modifica": preparaModifica($_REQUEST['idprodotto']);
             break;
 
-        case "modifica_prodotto": modificaProdotto($_REQUEST['campoDaModificare'], $_REQUEST['nuovoValore']);
+        case "modifica_prodotto": modificaProdotto($_REQUEST['modCampo'], $_REQUEST['modValore']);
             break;
         
         case "acquisto": effettuaAcquisto($_REQUEST['idprodotto'], $_REQUEST['costo'], $_REQUEST['quantita']);

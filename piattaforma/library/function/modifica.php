@@ -18,12 +18,17 @@
         //Controllo che l'utente sia loggato
         if(isset($_SESSION['email']))
         {
+            echo("Siamo dentro, avanti");
+
             $queryModifica = "UPDATE prodotti
-                              SET '".$campo."' = '".$valore."' 
-                              WHERE id = '".$_SESSION['idProdotto']."'";  
+                              SET ".$campo." = '".$valore."' 
+                              WHERE id = ".$_SESSION['idProdotto']."";  
 
             if($GLOBALS['connect']->query($queryModifica))
-                echo("Funziona"); 
+            {
+                echo("<script type='text/javascript'>alert('Modifica effettuata con successo!');</script>");
+                header("refresh:0.1; url=../pages/home.html");
+            }
         }
 
         //Nel caso in cui l'utente non sia loggato, o la sessione è scaduta, lo faccio riloggare
