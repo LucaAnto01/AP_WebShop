@@ -1,3 +1,4 @@
+var xmlhttp = new XMLHttpRequest(); //Variabile gestione interrogazioni client-server
 /**Funzioni relative alla modifica di un prodotto */
 
 /**Funzione adibita alla preparazione di una modifica relativa ad un prodotto

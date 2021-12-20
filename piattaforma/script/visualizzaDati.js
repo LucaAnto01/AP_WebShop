@@ -72,8 +72,8 @@ function visualizzaVetrina()
 
                     stringHtml += "</table><br>";
                     stringHtml += "<div id=\"popupFrame\" style=\"display:none\"> \
-                                        Quantita':<input type=\"number\" id=\"quantita\" name=\"quantita\"><br> \
-                                        <button value=\"acquista\" onclick=\"effettuaAcquisto()\">acquista</button> \
+                                        Quantita':<input type=\"number\" id=\"quantita\" name=\"quantita\" required=\"required\"><br> \
+                                        <button value=\"acquista\" onclick=\"effettuaAcquisto()\">Acquista</button> \
                                     </div>";
                     document.getElementById('contenuto').innerHTML = stringHtml;
                     
@@ -113,6 +113,7 @@ function visualizzaMagazzino()
                     var resultRequest = JSON.parse(xmlhttp.responseText);
 
                     var stringHtml = "<h3>Magazzino</h3> \
+                                      <button onclick=\"window.location.href='inserisci.html'\">Aggiungi un prodotto</button> \
                                       <table> \
                                         <tr><th>ID</th><th>Prodotto</th><th>Descrizione</th><th>Costo</th><th>Quantita'</th></tr>";
 
@@ -122,7 +123,8 @@ function visualizzaMagazzino()
                     });
 
                     stringHtml += "</table><br>";
-                    //stringHtml += "<iframe id=\"popupFrame\" src=\"modifica.html\" style=\"display:none\"></iframe>";
+                    
+                    //Modifica prodotto
                     stringHtml += "<div id=\"popupFrame\" style=\"display:none\"> \
                                     <form action=\"../library/controller.php\" method=\"post\"> \
                                         Campo da modificare:<input list=\"modCampo\" name=\"modCampo\" autocomplete=\"on\" /><datalist id=\"modCamp\"> \
@@ -130,10 +132,19 @@ function visualizzaMagazzino()
                                             <option>Descrizione</option> \
                                             <option>Costo</option> \
                                             <option>Quantita</option> </datalist><br> \
-                                        Nuovo valore:<input type=\"text\" id=\"modValore\" name=\"modValore\"><br> \
+                                        Nuovo valore:<input type=\"text\" id=\"modValore\" name=\"modValore\" required=\"required\"><br> \
                                         <input type=\"submit\" name=\"azione\" value=\"modifica_prodotto\" onclick=\"aggiornaPagina()\"> \
                                     </form> \
-                                </div>";
+                                </div><br>";
+
+                    //Inserisci prodotto
+                    // stringHtml += "<div id=\"nuovoProdotto\" style=\"display:none\"> \
+                    //                     Nome:<input type=\"text\" id=\"nome\"> \
+                    //                     Descrizione:<input type=\"text\" id=\"descrizione\"> \
+                    //                     Costo:<input type=\"text\" id=\"costo\"> \
+                    //                     Quantita':<input type=\"number\" id=\"quantita\"> \
+                    //                     <button onclick=\"aggiungiProdotto()\">Aggiungi</button> \
+                    //                 </div><br>";
                     document.getElementById('contenuto').innerHTML = stringHtml;
                     
                 }

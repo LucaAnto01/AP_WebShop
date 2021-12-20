@@ -29,6 +29,12 @@
                 while($row = $result->fetch_assoc())
                     $_SESSION['username'] = $row['username']; //Dato utile per creare la fattura
             }
+
+            if($tabellaCheck == "fornitori")
+            {
+                while($row = $result->fetch_assoc())
+                    $_SESSION['pIva'] = $row['pIva']; //Dato utile per l'inserimento di un nuovo prodotto nel DB
+            }
             return 1; //Corrispondenza trovata
         } 
 

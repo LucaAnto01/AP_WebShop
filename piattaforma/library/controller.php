@@ -7,6 +7,7 @@
     include "function/registrazione.php";
     include "function/load_homepage.php";
     include "function/modifica.php";
+    include "function/inserisci.php";
     include "function/effettua_acquisto.php";
 
     if (!isset($_SESSION['email'])) //Se non ci sono utenti loggati
@@ -39,6 +40,9 @@
             break;
 
         case "modifica_prodotto": modificaProdotto($_REQUEST['modCampo'], $_REQUEST['modValore']);
+            break;
+
+        case "inserisci": inserisciProdotto($_REQUEST['nome'], $_REQUEST['descrizione'], $_REQUEST['costo'], $_REQUEST['quantita']);
             break;
         
         case "prepara_acquisto": preparaAcquisto($_REQUEST['idprodotto'], $_REQUEST['costo']);

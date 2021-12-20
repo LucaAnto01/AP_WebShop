@@ -1,3 +1,4 @@
+var xmlhttp = new XMLHttpRequest(); //Variabile gestione interrogazioni client-server
 /**Funzioni relative all'acquisto di un prodotto */
 
 /**Funzione adibita alla preparazione dell'effetuazione di un acquisto
@@ -34,8 +35,10 @@
  
              if(xmlhttp.responseText == "error_0")
                  alert("Errore nella ricerca dell'azione");  
+
              if(xmlhttp.responseText == "error_7")
-                 alert("Quantita' inserita non valida"); //Nel caso in cui il cliente inserisca una quantità non valida  
+                 alert("Quantita' inserita non valida"); //Nel caso in cui il cliente inserisca una quantità non valida 
+                  
              else if(xmlhttp.responseText == "all_ok")
              {
                  alert("Acquisto effettuato con successo");
