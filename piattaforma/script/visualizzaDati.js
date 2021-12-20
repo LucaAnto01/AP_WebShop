@@ -1,25 +1,5 @@
 var xmlhttp = new XMLHttpRequest(); //Variabile gestione interrogazioni client-server
 
-function preparaModifica(idProd)
-{
-    document.getElementById("popupFrame").style.display = "inline";
-
-    xmlhttp.onreadystatechange =
-    function() 
-    {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
-        {
-            if(xmlhttp.responseText == "error_0")
-                alert("Errore nella ricerca dell'azione");           
-        }
-    }
-
-    xmlhttp.open("POST", "../library/controller.php", true);
-    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    //Invocazione AJAX e passaggio di parametri
-    xmlhttp.send("azione=prepara_modifica&idprodotto=" + idProd);
-}
-
 /**Funzione adibita alla creazione dinamica della pagina
  * Se l'utente loggato è un cliente --> visualizzaVetrina()
  * Se l'utente loggato è un fornitore --> visualizzaMagazzino()
@@ -84,19 +64,17 @@ function visualizzaVetrina()
                                       <table> \
                                         <tr><th>Prodotto</th><th>Descrizione</th><th>Costo</th><th>Quantita'</th></tr>";
 
-                    //TODO: la funzione per l'acquisto e aggiungi l'id del prodotto e la p.iva del fornitore --> non visibili
                     resultRequest.forEach(element => 
                     {
-                        stringHtml += "<tr><td>" + element.prodotto + "</td><td>" + element.descrizione + "</td><td>" + element.costo + "</td><td>" + element.quantita + "</td><td><button type='button' onclick='FiltraVisualizzazioneMusei(\"" + element.prodotto + "\")'>Acquista</button>"+"</td></tr>";
+                        stringHtml += "<tr><td>" + element.prodotto + "</td><td>" + element.descrizione + "</td><td>" + element.costo + "</td><td>" + element.quantita + "</td><td><button type='button' onclick='preparaAcquisto(\"" + element.id_prodotto + "\",\"" + element.costo + "\")'>Acquista</button>"+"</td></tr>";
                     });
 
-                    //TODO: usiamo il link per effettuare l'acquisto?
-                    /*resultRequest.forEach(element => 
-                    {
-                        stringHtml += "<tr><td>" + element.QQ_TitoloQuadro + "</td><td>" + element.QQ_AnnoEsecuzione + "</td><td>" + element.QQ_Tecnica + "</td><td>" + element.QQ_Larghezza + " x " + element.QQ_Altezza + "</td><td>" + element.QQ_Note + '</td><td><a href="Controller.php?azione=filtraMusei&codiceMuseo=' + element.QQ_CodiceMuseo + '">Visualizza museo</a></td></tr>';
-                    });*/
 
-                    stringHtml += "</table>";
+                    stringHtml += "</table><br>";
+                    stringHtml += "<div id=\"popupFrame\" style=\"display:none\"> \
+                                        Quantita':<input type=\"number\" id=\"quantita\" name=\"quantita\"><br> \
+                                        <button value=\"acquista\" onclick=\"effettuaAcquisto()\">acquista</button> \
+                                    </div>";
                     document.getElementById('contenuto').innerHTML = stringHtml;
                     
                 }

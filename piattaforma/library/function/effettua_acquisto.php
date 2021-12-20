@@ -7,10 +7,21 @@
      * - se non fosse possibile si genera un codice d'errore
      */
     $connect = new mysqli($GLOBALS['host'], $GLOBALS['user'], $GLOBALS['password'], $GLOBALS['db']);
-    /**Funzione adibita all'acquisto di un determinato prodotto sulla base del suo codice da parte di un cliente
-     * @param inumero intero idProdotto, numero intero quantita
+
+
+    /**Funzione adibita a settare in sessione l'id del prodotto da acquistare ed il relativo presso
+     * @param stringa idProdotto, numero intero costo
      */
-    function effettuaAcquisto($idProdotto, $costo, $quantita)
+    function preparaAcquisto($idProdotto, $costo)
+    {
+        $_SESSION['idProdotto'] = $idProdotto;
+        $_SESSION['costo'] = $costo;
+    }
+
+    /**Funzione adibita all'acquisto di un determinato prodotto sulla base del suo codice da parte di un cliente
+     * @param numero intero quantita
+     */
+    function effettuaAcquisto($quantita)
     {
         //Controllo che l'utente sia loggato e per sicurezza e coerenza che sia un cliente
         if((isset($_SESSION['email'])) && ($_SESSION['tipoAccount'] == "clienti"))
@@ -18,7 +29,7 @@
             //Verifico che sia possibile effettuare l'acquisto
             $queryAcquisto = "SELECT *
                               FROM vetrina_prodotti v
-                              WHERE v.id_prodotto = '".$idProdotto."'  AND v.quantita >= '".$quantita."'";
+                              WHERE v.id_prodotto = '".$_SESSION['idProdotto']."'  AND v.quantita >= '".$quantita."'";
         
             $result = $GLOBALS['connect']->query($queryAcquisto);
 
@@ -27,13 +38,13 @@
                 $pIvaFornitore;
 
                 while($row = $result->fetch_assoc()) //C'è un solo elemento 
-                    $pIvaFornitore = $row['pIva_fornitore']; //Ricavo il numero della partita iva del fornitore al fine di creare la fattura
+                    $pIvaFornitore = $row['piva_fornitore']; //Ricavo il numero della partita iva del fornitore al fine di creare la fattura
 
-                $importo = $costo * $quantita;
+                $importo = $_SESSION['costo'] * $quantita;
 
                 //Genero la fattura a seguito dell'acquisto avvenuto
                 $queryFattura = "INSERT INTO fatture(fkIntestatario, fkIdProdotto, fkPIvaFornitore, emissione, quantitaProdotto, importo) 
-                                        VALUES('".$_SESSION['username']."', '".$idProdotto."', '".$pIvaFornitore."', '".date("Y/m/d")."', '".$quantita."', '".$importo."')";
+                                        VALUES('".$_SESSION['username']."', '".$_SESSION['idProdotto']."', '".$pIvaFornitore."', '".date("Y/m/d")."', '".$quantita."', '".$importo."')";
                 
                 // if($GLOBALS['connect']->query($queryFattura))
                 //     echo("Funziona");
@@ -41,10 +52,10 @@
                 //Aggiorno la quantità di prodotto disponibile a seguito dell'acquisto
                 $queryUpdateQuantita = "UPDATE prodotti
                                         SET quantita = quantita - ".$quantita." 
-                                        WHERE id = '".$idProdotto."'";
+                                        WHERE id = '".$_SESSION['idProdotto']."'";
 
                 if(($GLOBALS['connect']->query($queryUpdateQuantita)) && ($GLOBALS['connect']->query($queryFattura)))
-                    echo("Funziona");
+                    echo("all_ok");
             }
             
             else

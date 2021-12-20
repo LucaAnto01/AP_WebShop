@@ -21,7 +21,7 @@
     */
     function getVetrinaProdotti()
     {
-        $queryVetrinaProdotti = "SELECT prodotto, descrizione, costo, quantita, fornitore 
+        $queryVetrinaProdotti = "SELECT prodotto, descrizione, costo, quantita, fornitore, id_prodotto 
                                  FROM vetrina_prodotti";
         
         $result = $GLOBALS['connect']->query($queryVetrinaProdotti);

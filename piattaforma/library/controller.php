@@ -41,7 +41,10 @@
         case "modifica_prodotto": modificaProdotto($_REQUEST['modCampo'], $_REQUEST['modValore']);
             break;
         
-        case "acquisto": effettuaAcquisto($_REQUEST['idprodotto'], $_REQUEST['costo'], $_REQUEST['quantita']);
+        case "prepara_acquisto": preparaAcquisto($_REQUEST['idprodotto'], $_REQUEST['costo']);
+            break;
+
+        case "acquisto": effettuaAcquisto($_REQUEST['quantita']);
             break;
     
         default: echo("error_0");
