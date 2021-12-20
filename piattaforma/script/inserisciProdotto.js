@@ -21,6 +21,7 @@ var xmlhttp = new XMLHttpRequest(); //Variabile gestione interrogazioni client-s
                 alert("Inserimento di " + nome + " avvenuto con successo!");
                 window.location.href = "../pages/home.html";
             }
+
          }
      }
      
@@ -32,4 +33,5 @@ var xmlhttp = new XMLHttpRequest(); //Variabile gestione interrogazioni client-s
      xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
      //Invocazione AJAX e passaggio di parametri
      xmlhttp.send("azione=inserisci&nome=" + nome + "&descrizione=" + descrizione + "&costo=" + costo + "&quantita=" + quantita);
+     
  }
