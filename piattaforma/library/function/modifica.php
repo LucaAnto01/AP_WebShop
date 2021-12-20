@@ -18,7 +18,6 @@
         //Controllo che l'utente sia loggato
         if(isset($_SESSION['email']))
         {
-            echo("Siamo dentro, avanti");
 
             $queryModifica = "UPDATE prodotti
                               SET ".$campo." = '".$valore."' 
@@ -26,7 +25,7 @@
 
             if($GLOBALS['connect']->query($queryModifica))
             {
-                echo("<script type='text/javascript'>alert('Modifica effettuata con successo!');</script>");
+                //echo("<script type='text/javascript'>alert('Modifica effettuata con successo!');</script>");
                 header("refresh:0.1; url=../pages/home.html");
             }
         }

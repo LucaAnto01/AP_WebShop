@@ -35,18 +35,16 @@
                 $queryFattura = "INSERT INTO fatture(fkIntestatario, fkIdProdotto, fkPIvaFornitore, emissione, quantitaProdotto, importo) 
                                         VALUES('".$_SESSION['username']."', '".$idProdotto."', '".$pIvaFornitore."', '".date("Y/m/d")."', '".$quantita."', '".$importo."')";
                 
-                //TODO: poi rimuovilo
-                if($GLOBALS['connect']->query($queryFattura))
-                    echo("Funziona");
+                // if($GLOBALS['connect']->query($queryFattura))
+                //     echo("Funziona");
                 
                 //Aggiorno la quantità di prodotto disponibile a seguito dell'acquisto
                 $queryUpdateQuantita = "UPDATE prodotti
                                         SET quantita = quantita - ".$quantita." 
                                         WHERE id = '".$idProdotto."'";
 
-                if($GLOBALS['connect']->query($queryUpdateQuantita))
+                if(($GLOBALS['connect']->query($queryUpdateQuantita)) && ($GLOBALS['connect']->query($queryFattura)))
                     echo("Funziona");
-                //TODO: diminuisci la quantità del prodotto acquistato
             }
             
             else

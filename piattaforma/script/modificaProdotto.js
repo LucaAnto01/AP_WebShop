@@ -1,4 +1,5 @@
 function aggiornaPagina()
 {
-    top.location.reload(); //TODO: aggiorna la pagina superiore
+    history.back();
+    window.top.location.href = "home.html";  //TODO: aggiorna la pagina superiore
 }

@@ -138,20 +138,24 @@ function visualizzaMagazzino()
                                       <table> \
                                         <tr><th>ID</th><th>Prodotto</th><th>Descrizione</th><th>Costo</th><th>Quantita'</th></tr>";
 
-                    //TODO: la funzione per la modifica
                     resultRequest.forEach(element => 
                     {
                         stringHtml += "<tr><td>" + element.id_prodotto + "</td><td>" + element.prodotto + "</td><td>" + element.descrizione + "</td><td>" + element.costo + "</td><td>" + element.quantita + "</td><td><button type='button' onclick='preparaModifica(\"" + element.id_prodotto + "\")'>Modifica</button>"+"</td></tr>";
                     });
 
-                    //TODO: usiamo il link per effettuare l'acquisto?
-                    /*resultRequest.forEach(element => 
-                    {
-                        stringHtml += "<tr><td>" + element.QQ_TitoloQuadro + "</td><td>" + element.QQ_AnnoEsecuzione + "</td><td>" + element.QQ_Tecnica + "</td><td>" + element.QQ_Larghezza + " x " + element.QQ_Altezza + "</td><td>" + element.QQ_Note + '</td><td><a href="Controller.php?azione=filtraMusei&codiceMuseo=' + element.QQ_CodiceMuseo + '">Visualizza museo</a></td></tr>';
-                    });*/
-
                     stringHtml += "</table><br>";
-                    stringHtml += "<iframe id=\"popupFrame\" src=\"modifica.html\" style=\"display:none\"></iframe>";
+                    //stringHtml += "<iframe id=\"popupFrame\" src=\"modifica.html\" style=\"display:none\"></iframe>";
+                    stringHtml += "<div id=\"popupFrame\" style=\"display:none\"> \
+                                    <form action=\"../library/controller.php\" method=\"post\"> \
+                                        Campo da modificare:<input list=\"modCampo\" name=\"modCampo\" autocomplete=\"on\" /><datalist id=\"modCamp\"> \
+                                            <option>Nome</option> \
+                                            <option>Descrizione</option> \
+                                            <option>Costo</option> \
+                                            <option>Quantita</option> </datalist><br> \
+                                        Nuovo valore:<input type=\"text\" id=\"modValore\" name=\"modValore\"><br> \
+                                        <input type=\"submit\" name=\"azione\" value=\"modifica_prodotto\" onclick=\"aggiornaPagina()\"> \
+                                    </form> \
+                                </div>";
                     document.getElementById('contenuto').innerHTML = stringHtml;
                     
                 }
