@@ -13,8 +13,14 @@ var xmlhttp = new XMLHttpRequest(); //Variabile gestione interrogazioni client-s
      {
          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
          {
-             if(xmlhttp.responseText == "error_0")
-                 alert("Errore nella ricerca dell'azione");           
+            if(xmlhttp.responseText == "error_0")
+                alert("Errore nella ricerca dell'azione");  
+
+            if(xmlhttp.responseText == "error_l")
+            {
+                alert('Devi prima effettuare il login!');
+                window.location.href = "../pages/login.html";
+            }         
          }
      }
  

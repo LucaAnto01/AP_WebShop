@@ -16,6 +16,12 @@ var xmlhttp = new XMLHttpRequest(); //Variabile gestione interrogazioni client-s
             if(xmlhttp.responseText == "error_8") 
                 alert("Impossibile inserire il prodotto"); 
 
+            if(xmlhttp.responseText == "error_l")
+            {
+                alert('Devi prima effettuare il login!');
+                window.location.href = "../pages/login.html";
+            }
+
             else if(xmlhttp.responseText == "all_ok")
             {
                 alert("Inserimento di " + nome + " avvenuto con successo!");

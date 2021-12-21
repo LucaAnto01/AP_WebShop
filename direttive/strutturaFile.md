@@ -16,7 +16,8 @@
     <body>
 
         <div id="pagina">
-
+            <div id="contenuto">
+            </div>
         </div>
 
     </body>

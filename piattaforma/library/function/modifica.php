@@ -26,15 +26,13 @@
             if($GLOBALS['connect']->query($queryModifica))
             {
                 //echo("<script type='text/javascript'>alert('Modifica effettuata con successo!');</script>");
+                echo("all_ok");
                 header("refresh:0.1; url=../pages/home.html");
             }
         }
 
         //Nel caso in cui l'utente non sia loggato, o la sessione è scaduta, lo faccio riloggare
         else
-        {
-            echo("<script type='text/javascript'>alert('Devi prima effettuare il login!');</script>");
-            header("refresh:0.1; url=../pages/login.html");
-        }
+            echo("error_l");
     }
 ?>

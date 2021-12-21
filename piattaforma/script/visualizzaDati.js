@@ -13,6 +13,12 @@ function checkVisualizza()
         {
             if(xmlhttp.responseText == "error_0")
                 alert("Errore nella ricerca dell'azione");
+            
+            if(xmlhttp.responseText == "error_l")
+            {
+                alert('Devi prima effettuare il login!');
+                window.location.href = "../pages/login.html";
+            }
 
             else if(xmlhttp.responseText != null)
             {
@@ -127,7 +133,7 @@ function visualizzaMagazzino()
                     //Modifica prodotto
                     stringHtml += "<div id=\"popupFrame\" style=\"display:none\"> \
                                     <form action=\"../library/controller.php\" method=\"post\"> \
-                                        Campo da modificare:<input list=\"modCampo\" name=\"modCampo\" autocomplete=\"on\" /><datalist id=\"modCamp\"> \
+                                        Campo da modificare:<input list=\"modCampo\" name=\"modCampo\" autocomplete=\"off\" /><datalist id=\"modCamp\"> \
                                             <option>Nome</option> \
                                             <option>Descrizione</option> \
                                             <option>Costo</option> \

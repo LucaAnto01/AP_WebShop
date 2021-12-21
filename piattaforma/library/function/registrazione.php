@@ -20,7 +20,7 @@
     /**Funzione adibita alla registrazione di un cliente e quindi al rispettivo inserimento nel DB */
     function registrazioneCliente($emailIn, $passwordIn)
     {
-        $nuovoFornitore = array('username' => strtolower($_POST['username']), //Rendo miuscolo tutto l'username
+        $nuovoCliente = array('username' => strtolower($_POST['username']), //Rendo miuscolo tutto l'username
             'email' => $emailIn, //Rendo minuscola tutta l'email
             'password' => $passwordIn,
             'nome' => $_POST['nome'],
@@ -28,9 +28,9 @@
             'residenza' => $_POST['residenza']
         );
 
-        $queryInserisciCliente = $GLOBALS['connect']->prepare("insert into clienti values('".$nuovoFornitore['username']."', '".$nuovoFornitore['email']."', ?, '".$nuovoFornitore['nome']."', '".$nuovoFornitore['cognome']."', '".$nuovoFornitore['residenza']."')");
+        $queryInserisciCliente = $GLOBALS['connect']->prepare("insert into clienti values('".$nuovoCliente['username']."', '".$nuovoCliente['email']."', ?, '".$nuovoCliente['nome']."', '".$nuovoCliente['cognome']."', '".$nuovoCliente['residenza']."')");
 
-        $password = mysqli_real_escape_string($GLOBALS['connect'], $nuovoFornitore['password']);
+        $password = mysqli_real_escape_string($GLOBALS['connect'], $nuovoCliente['password']);
         $queryInserisciCliente->bind_param('s', $password);
 
         if($queryInserisciCliente->execute() == false)
@@ -41,10 +41,10 @@
 
         else
         {
-            $nuovoUtenteJson = json_encode($nuovoFornitore); //TODO: se fai in ajax poi sistema la questione del formato json
+            //$nuovoUtenteJson = json_encode($nuovoCliente);
         
-            echo("Account ".$nuovoFornitore['username']." registrato con successo<br>");     
-            echo("Nuovo cliente creato: ".json_encode($nuovoFornitore));        
+            echo("<script type='text/javascript'>alert('Account ".$nuovoCliente['ragioneSociale']." registrato con successo');</script>");  
+            header("refresh:0.1; url=../pages/login.html");        
         }
     }
 
@@ -73,10 +73,10 @@
 
         else
         {
-            $nuovoUtenteJson = json_encode($nuovoFornitore); //TODO: se fai in ajax poi sistema la questione del formato json
+            //$nuovoUtenteJson = json_encode($nuovoFornitore);
         
-            echo("Account ".$nuovoFornitore['ragioneSociale']." registrato con successo<br>");     
-            echo("Nuovo fornitore creato: ".json_encode($nuovoFornitore));        
+            echo("<script type='text/javascript'>alert('Account ".$nuovoFornitore['ragioneSociale']." registrato con successo');</script>");  
+            header("refresh:0.1; url=../pages/login.html");      
         }
     }
 
@@ -103,7 +103,7 @@
             exit;
         }
             
-        header("refresh:5; url=../pages/login.html"); //Rendirizzamento alla pagina di login in 5 secondi
+        header("refresh:0.1; url=../pages/login.html");
     }
 
 ?>
