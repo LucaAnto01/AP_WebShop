@@ -6,6 +6,8 @@
     include "function/logout.php";
     include "function/registrazione.php";
     include "function/load_homepage.php";
+    include "function/load_profilo.php";
+    include "function/load_fatture.php";
     include "function/modifica.php";
     include "function/inserisci.php";
     include "function/effettua_acquisto.php";
@@ -34,6 +36,12 @@
             break;
             
         case "home_page": loadHomePage();
+            break;
+
+        case "carica_profilo": loadProfilo();
+            break;
+
+        case "fatture": loadFatture();
             break;
 
         case "prepara_modifica": preparaModifica($_REQUEST['idprodotto']);
