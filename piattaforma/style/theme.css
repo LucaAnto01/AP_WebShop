@@ -72,5 +72,29 @@ input[type=submit]{
 }
 
 
+.navbar {
+
+    background-color: #f2f2f2;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    left: 0;
+    width: 100%; /* Full width */
+    height: 6.5%;
+
+}
+
+.navbar a:hover {
+    background: #ddd;
+    color: black;
+    height: 90%;
+  }
+
+.navbar a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 3px 12px;
+    text-decoration: none;
+}
 
 
