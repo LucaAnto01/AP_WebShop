@@ -7,7 +7,10 @@
      */
     function checkEmail($emailIn)
     {
-        $queryCheckEmail = "SELECT * FROM clienti, fornitori WHERE clienti.email = '".$emailIn."' OR fornitori.email = '".$emailIn."'";
+        $queryCheckEmail = "SELECT * 
+                            FROM clienti, fornitori 
+                            WHERE clienti.email = '".$emailIn."' OR fornitori.email = '".$emailIn."'";
+                            
         $result = $GLOBALS['connect']->query($queryCheckEmail);
 
         if ($result->num_rows > 0)

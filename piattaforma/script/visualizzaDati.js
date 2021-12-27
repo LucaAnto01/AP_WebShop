@@ -143,14 +143,6 @@ function visualizzaMagazzino()
                                     </form> \
                                 </div><br>";
 
-                    //Inserisci prodotto
-                    // stringHtml += "<div id=\"nuovoProdotto\" style=\"display:none\"> \
-                    //                     Nome:<input type=\"text\" id=\"nome\"> \
-                    //                     Descrizione:<input type=\"text\" id=\"descrizione\"> \
-                    //                     Costo:<input type=\"text\" id=\"costo\"> \
-                    //                     Quantita':<input type=\"number\" id=\"quantita\"> \
-                    //                     <button onclick=\"aggiungiProdotto()\">Aggiungi</button> \
-                    //                 </div><br>";
                     document.getElementById('contenuto').innerHTML = stringHtml;
                     
                 }
