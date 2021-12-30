@@ -11,4 +11,5 @@ error_8 -> errore nella query d'inserimento, valori non validi
 error_9 -> errore nella query per info cliente, valori errati o sessione inesistente
 error_10 -> errore nella query per info fornitore, valori errati o sessione inesistente
 error_11 -> errore nella query delle fatture, valori errati o sessione inesistente
+
 error_l -> errore nella visualizzazioni di informaizoni, l'utente deve prima effettuare il login
