@@ -1,6 +1,5 @@
 /*Tema generale del progetto*/
 
-
 body
 {
     background-color: rgba(244, 91, 105, 1);
@@ -83,6 +82,22 @@ input[type=submit]{
 
 }
 
+.navbar img {
+    width: 8%;
+    float: left;
+}
+
+.navbar a {
+    float: left;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    height: 100%;
+    padding-top: 0.35%;
+    padding-left: 0.5%;
+    margin-right: -30%;
+}
+
 .navbar a:hover {
     background: #ddd;
     color: black;
@@ -90,8 +105,7 @@ input[type=submit]{
   }
 
 
-#homeImg {
+/*#homeImg {
     width: 50px;
     height: 50px;
-}
-
+}*/
