@@ -46,9 +46,6 @@
                 $queryFattura = "INSERT INTO fatture(fkIntestatario, fkIdProdotto, fkPIvaFornitore, emissione, quantitaProdotto, importo) 
                                         VALUES('".$_SESSION['username']."', '".$_SESSION['idProdotto']."', '".$pIvaFornitore."', '".date("Y/m/d")."', '".$quantita."', '".$importo."')";
                 
-                // if($GLOBALS['connect']->query($queryFattura))
-                //     echo("Funziona");
-                
                 //Aggiorno la quantità di prodotto disponibile a seguito dell'acquisto
                 $queryUpdateQuantita = "UPDATE prodotti
                                         SET quantita = quantita - ".$quantita." 
@@ -64,9 +61,6 @@
 
         //Nel caso in cui l'utente non sia loggato, o la sessione è scaduta, lo faccio riloggare
         else
-        {
-            echo("<script type='text/javascript'>alert('Devi prima effettuare il login!');</script>");
-            header("refresh:0.1; url=../pages/login.html");
-        }
+            echo("error_l");
     }
 ?>

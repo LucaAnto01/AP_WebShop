@@ -37,7 +37,13 @@ var xmlhttp = new XMLHttpRequest(); //Variabile gestione interrogazioni client-s
                  alert("Errore nella ricerca dell'azione");  
 
              if(xmlhttp.responseText == "error_7")
-                 alert("Quantita' inserita non valida"); //Nel caso in cui il cliente inserisca una quantità non valida 
+                 alert("Quantita' inserita non valida"); //Nel caso in cui il cliente inserisca una quantità non valida
+                 
+            if(xmlhttp.responseText == "error_l")
+            {
+                alert('Devi prima effettuare il login!');
+                window.location.href = "../pages/login.html";
+            }
                   
              else if(xmlhttp.responseText == "all_ok")
              {
