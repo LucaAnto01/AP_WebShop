@@ -12,13 +12,21 @@
     </head>
 
     <body>
-        <h3>Inserisci un nuovo prodotto</h3>
+        <div class="navbar">
+            <a href="home.html">
+                <img src="../img/home.png"/>
+            </a>
+            <a href="profilo.html">
+                <img src="../img/user.png"/>
+            </a>
+        </div>
         <div id="nuovoProdotto">
-            Nome:<input type="text" id="nome" required="required">
-            Descrizione:<input type="text" id="descrizione" required="required">
-            Costo:<input type="number" step="any" id="costo" required="required">
-            Quantita':<input type="number" id="quantita" required="required">
-            <button onclick="inserisciProdotto()">Aggiungi</button>
+            <h3>Inserisci un nuovo prodotto:</h3>
+            <input type="text" id="nome" required="required"  placeholder="Nome"> <br>
+            <input type="text" id="descrizione" required="required"  placeholder="Descrizione"> <br>
+            <input type="number" step="any" id="costo" required="required"  placeholder="costo"> <br>
+            <input type="number" id="quantita" required="required"  placeholder="Quantità"><br>
+            <button class="button" onclick="inserisciProdotto()">Aggiungi</button>
         </div>
 
     </body>
