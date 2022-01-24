@@ -6,7 +6,7 @@
     $password = "";
     $db = "AeP_webshop";
 
-    //$connect = new mysqli($GLOBALS["host"], $GLOBALS["user"], $GLOBALS["password"], $GLOBALS["db"]); //Connessione al DB TODO: eventualmente cancella questa riga
+    //$connect = new mysqli($GLOBALS["host"], $GLOBALS["user"], $GLOBALS["password"], $GLOBALS["db"]);
     $connect = new mysqli($host, $user, $password, $db);
 
     /**Test connessione al DB */

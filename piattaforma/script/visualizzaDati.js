@@ -79,7 +79,7 @@ function visualizzaVetrina()
                     stringHtml += "</table><br>";
                     stringHtml += "<div id=\"popupFrame\" style=\"display:none\"> \
                                         Quantita':<input type=\"number\" id=\"quantita\" name=\"quantita\" required=\"required\"><br> \
-                                        <button value=\"acquista\" onclick=\"effettuaAcquisto()\">Acquista</button> \
+                                        <button value=\"acquista\" onclick=\"effettuaAcquisto()\">Conferma acquisto</button> \
                                     </div>";
                     document.getElementById('contenuto').innerHTML = stringHtml;
                     
