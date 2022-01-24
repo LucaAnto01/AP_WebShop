@@ -1,5 +1,4 @@
 <?php
-    //TODO: fai tutto. Ma prima fai la parte relativa agli acquisti dei clienti. Questa lasciala come ultima parte da fare
     /**Parte dinamica della pagina relativa al profilo del cliente
      * - clienti: visualizzano gli acquisti fatti
      * - fornitori: visualizzano le vendite fatte

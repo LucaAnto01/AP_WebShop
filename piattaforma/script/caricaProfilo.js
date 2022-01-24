@@ -25,6 +25,9 @@ function visualizzaFatture()
                 alert('Devi prima effettuare il login!');
                 window.location.href = "../pages/login.html";
             }
+
+            if(xmlhttp.responseText == "error_11")
+                alert("Non sono disponibili fatture per questo fornitore!");
                 
             else if(xmlhttp.responseText != null)
             {

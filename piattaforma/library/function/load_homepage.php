@@ -17,7 +17,6 @@
 
     /**Funzione adibita all'ottenimento dei dati contenuti nella vista:
      *  -vetrina_prodotti: se è loggato un utente o nel magazzino dei produttori
-     * TODO: decidi se restituire oppure no il risultato ottenuto e fare nell'altra funzione o qui l'encode
     */
     function getVetrinaProdotti()
     {
