@@ -133,12 +133,12 @@ function visualizzaMagazzino()
                     //Modifica prodotto
                     stringHtml += "<div id=\"popupFrame\" style=\"display:none\"> \
                                     <form action=\"../library/controller.php\" method=\"post\"> \
-                                        Campo da modificare:<input list=\"modCampo\" name=\"modCampo\" autocomplete=\"off\" /><datalist id=\"modCamp\"> \
+                                        <input list=\"modCampo\" name=\"modCampo\" autocomplete=\"off\"   placeholder=\"Campo Da Modificare\" /><datalist id=\"modCamp\"> \
                                             <option>Nome</option> \
                                             <option>Descrizione</option> \
                                             <option>Costo</option> \
                                             <option>Quantita</option> </datalist><br> \
-                                        Nuovo valore:<input type=\"text\" id=\"modValore\" name=\"modValore\" required=\"required\"><br> \
+                                        <input type=\"text\" id=\"modValore\" name=\"modValore\" required=\"required\" placeholder=\"Nuovo Valore\" ><br> \
                                         <input type=\"submit\" name=\"azione\" value=\"modifica_prodotto\" onclick=\"aggiornaPagina()\"> \
                                     </form> \
                                 </div><br>";
