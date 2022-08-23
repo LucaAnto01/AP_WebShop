@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title>A&P WEB SHOP</title>
+
+        <link rel="stylesheet" href="../style/theme.css">
+        
+
+    </head>
+
+    <body>
+        <div class="navbar">
+            <a href="home.html">
+                <img src="../img/home.png"/>
+            </a>
+            <a href="profilo.html">
+                <img src="../img/user.png"/>
+            </a>
+        </div>
+
+        <div id="pagina"> 
+            
+
+            <div id="logo">
+                <img src="../img/logo.png">
+                <br> 
+                <b>Accedi al A&P WebShop: </b>
+            </div>
+            <!--  Con required si è obbligati a scrivere qualcosa quindi non rimane vuoto-->
+            <form action="../library/controller.php" method="post">
+                <input type="text" id="email" required="required" name="email" placeholder="email"><br>
+                <input type="password" id="password" required="required" name="password" placeholder="password"><br>
+                <input type="submit" name="azione" value="login">
+            </form>
+        </div>
+
+    </body>
+
+</html>

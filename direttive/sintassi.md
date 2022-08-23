@@ -1,0 +1,2 @@
+- login sulla base della email e della password
+- tutti i parametri scritti in minuscolo, parametri composti iniziale minuscola inizio seconda parola maiuscolo (es. pIva)
